@@ -1,0 +1,3627 @@
+{
+  "headers": {
+    "generation": "2020-08-12T20:30:09+00:00",
+    "php": "7.4",
+    "exakat_version": "2.1.5",
+    "exakat_build": "1088",
+    "vcs_url": "https:\\/\\/github.com\\/Seldaek\\/monolog.git",
+    "vcs_branch": "(HEAD detached at 1.0.2)",
+    "vcs_revision": "b704c49a3051536f67f2d39f13568f74615b9922",
+    "code_last_commit": ""
+  },
+  "versions": {
+    "\\": [],
+    "\\Monolog\\": {
+      "class": {
+        "Logger": {
+          "abstract": false,
+          "final": false,
+          "extends": "",
+          "implements": [],
+          "use": [],
+          "useoptions": [],
+          "phpdoc": "\\/**\n * Monolog log channel\n *\n * It contains a stack of Handlers and a stack of Processors,\n * and uses them to store records that are added to it.\n *\n * @author Jordi Boggiano <j.boggiano@seld.be>\n *\\/",
+          "attributes": [],
+          "php": false,
+          "constants": {
+            "DEBUG": {
+              "value": 100,
+              "visibility": "",
+              "phpdoc": "\\/**\n     * Detailed debug information\n     *\\/",
+              "attributes": []
+            },
+            "INFO": {
+              "value": 200,
+              "visibility": "",
+              "phpdoc": "\\/**\n     * Interesting events\n     *\n     * Examples: User logs in, SQL logs.\n     *\\/",
+              "attributes": []
+            },
+            "WARNING": {
+              "value": 300,
+              "visibility": "",
+              "phpdoc": "\\/**\n     * Exceptional occurences that are not errors\n     *\n     * Examples: Use of deprecated APIs, poor use of an API,\n     * undesirable things that are not necessarily wrong.\n     *\\/",
+              "attributes": []
+            },
+            "ERROR": {
+              "value": 400,
+              "visibility": "",
+              "phpdoc": "\\/**\n     * Runtime errors\n     *\\/",
+              "attributes": []
+            },
+            "CRITICAL": {
+              "value": 500,
+              "visibility": "",
+              "phpdoc": "\\/**\n     * Critical conditions\n     *\n     * Example: Application component unavailable, unexpected exception.\n     *\\/",
+              "attributes": []
+            },
+            "ALERT": {
+              "value": 550,
+              "visibility": "",
+              "phpdoc": "\\/**\n     * Action must be taken immediately\n     *\n     * Example: Entire website down, database unavailable, etc.\n     * This should trigger the SMS alerts and wake you up.\n     *\\/",
+              "attributes": []
+            }
+          },
+          "properties": {
+            "$levels": {
+              "value": "",
+              "visibility": "protected",
+              "static": true,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            },
+            "$name": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            },
+            "$handlers": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "\\/**\n     * The handler stack\n     *\n     * @var array of Monolog\\Handler\\HandlerInterface\n     *\\/",
+              "attributes": []
+            },
+            "$processors": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            }
+          },
+          "methods": {
+            "__construct": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$name",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * @param string $name The logging channel\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            },
+            "getName": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "\\/**\n     * @return string\n     *\\/",
+              "attributes": []
+            },
+            "pushHandler": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$handler",
+                  "reference": false,
+                  "typehint": [
+                    "HandlerInterface"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Pushes an handler on the stack.\n     *\n     * @param HandlerInterface $handler\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            },
+            "popHandler": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "\\/**\n     * Pops an handler from the stack\n     *\n     * @return HandlerInterface\n     *\\/",
+              "attributes": []
+            },
+            "pushProcessor": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$callback",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Adds a processor in the stack.\n     *\n     * @param callable $callback\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            },
+            "popProcessor": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "\\/**\n     * Removes the processor on top of the stack and returns it.\n     *\n     * @return callable\n     *\\/",
+              "attributes": []
+            },
+            "addRecord": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$level",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Adds a log record.\n     *\n     * @param integer $level The logging level\n     * @param string $message The log message\n     * @param array $context The log context\n     * @return Boolean Whether the record has been processed\n     *\\/",
+                  "attributes": []
+                },
+                {
+                  "name": "$message",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "",
+                  "attributes": []
+                },
+                {
+                  "name": "$context",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "array( )",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "addDebug": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$message",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Adds a log record at the DEBUG level.\n     *\n     * @param string $message The log message\n     * @param array $context The log context\n     * @return Boolean Whether the record has been processed\n     *\\/",
+                  "attributes": []
+                },
+                {
+                  "name": "$context",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "array( )",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "addInfo": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$message",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Adds a log record at the INFO level.\n     *\n     * @param string $message The log message\n     * @param array $context The log context\n     * @return Boolean Whether the record has been processed\n     *\\/",
+                  "attributes": []
+                },
+                {
+                  "name": "$context",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "array( )",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "addWarning": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$message",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Adds a log record at the WARNING level.\n     *\n     * @param string $message The log message\n     * @param array $context The log context\n     * @return Boolean Whether the record has been processed\n     *\\/",
+                  "attributes": []
+                },
+                {
+                  "name": "$context",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "array( )",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "addError": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$message",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Adds a log record at the ERROR level.\n     *\n     * @param string $message The log message\n     * @param array $context The log context\n     * @return Boolean Whether the record has been processed\n     *\\/",
+                  "attributes": []
+                },
+                {
+                  "name": "$context",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "array( )",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "addCritical": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$message",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Adds a log record at the CRITICAL level.\n     *\n     * @param string $message The log message\n     * @param array $context The log context\n     * @return Boolean Whether the record has been processed\n     *\\/",
+                  "attributes": []
+                },
+                {
+                  "name": "$context",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "array( )",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "addAlert": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$message",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Adds a log record at the ALERT level.\n     *\n     * @param string $message The log message\n     * @param array $context The log context\n     * @return Boolean Whether the record has been processed\n     *\\/",
+                  "attributes": []
+                },
+                {
+                  "name": "$context",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "array( )",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "getLevelName": {
+              "visibility": "public",
+              "static": true,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$level",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Gets the name of the logging level.\n     *\n     * @param integer $level\n     * @return string\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            },
+            "debug": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$message",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Adds a log record at the DEBUG level.\n     *\n     * This method allows to have an easy ZF compatibility.\n     *\n     * @param string $message The log message\n     * @param array $context The log context\n     * @return Boolean Whether the record has been processed\n     *\\/",
+                  "attributes": []
+                },
+                {
+                  "name": "$context",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "array( )",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "info": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$message",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Adds a log record at the INFO level.\n     *\n     * This method allows to have an easy ZF compatibility.\n     *\n     * @param string $message The log message\n     * @param array $context The log context\n     * @return Boolean Whether the record has been processed\n     *\\/",
+                  "attributes": []
+                },
+                {
+                  "name": "$context",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "array( )",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "notice": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$message",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Adds a log record at the INFO level.\n     *\n     * This method allows to have an easy ZF compatibility.\n     *\n     * @param string $message The log message\n     * @param array $context The log context\n     * @return Boolean Whether the record has been processed\n     *\\/",
+                  "attributes": []
+                },
+                {
+                  "name": "$context",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "array( )",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "warn": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$message",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Adds a log record at the WARNING level.\n     *\n     * This method allows to have an easy ZF compatibility.\n     *\n     * @param string $message The log message\n     * @param array $context The log context\n     * @return Boolean Whether the record has been processed\n     *\\/",
+                  "attributes": []
+                },
+                {
+                  "name": "$context",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "array( )",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "err": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$message",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Adds a log record at the ERROR level.\n     *\n     * This method allows to have an easy ZF compatibility.\n     *\n     * @param string $message The log message\n     * @param array $context The log context\n     * @return Boolean Whether the record has been processed\n     *\\/",
+                  "attributes": []
+                },
+                {
+                  "name": "$context",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "array( )",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "crit": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$message",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Adds a log record at the CRITICAL level.\n     *\n     * This method allows to have an easy ZF compatibility.\n     *\n     * @param string $message The log message\n     * @param array $context The log context\n     * @return Boolean Whether the record has been processed\n     *\\/",
+                  "attributes": []
+                },
+                {
+                  "name": "$context",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "array( )",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "alert": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$message",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Adds a log record at the ALERT level.\n     *\n     * This method allows to have an easy ZF compatibility.\n     *\n     * @param string $message The log message\n     * @param array $context The log context\n     * @return Boolean Whether the record has been processed\n     *\\/",
+                  "attributes": []
+                },
+                {
+                  "name": "$context",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "array( )",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "emerg": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$message",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Adds a log record at the ALERT level.\n     *\n     * This method allows to have an easy ZF compatibility.\n     *\n     * @param string $message The log message\n     * @param array $context The log context\n     * @return Boolean Whether the record has been processed\n     *\\/",
+                  "attributes": []
+                },
+                {
+                  "name": "$context",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "array( )",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "\\Monolog\\Handler\\": {
+      "class": {
+        "TestHandler": {
+          "abstract": false,
+          "final": false,
+          "extends": "\\monolog\\handler\\abstractprocessinghandler",
+          "implements": [],
+          "use": [],
+          "useoptions": [],
+          "phpdoc": "\\/**\n * Used for testing purposes.\n *\n * It records all records and gives you access to them for verification.\n *\n * @author Jordi Boggiano <j.boggiano@seld.be>\n *\\/",
+          "attributes": [],
+          "php": false,
+          "properties": {
+            "$records": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            },
+            "$recordsByLevel": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            }
+          },
+          "methods": {
+            "getRecords": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            },
+            "hasAlert": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "hasCritical": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "hasError": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "hasWarning": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "hasInfo": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "hasDebug": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "hasAlertRecords": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            },
+            "hasCriticalRecords": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            },
+            "hasErrorRecords": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            },
+            "hasWarningRecords": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            },
+            "hasInfoRecords": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            },
+            "hasDebugRecords": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            },
+            "hasRecord": {
+              "visibility": "protected",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "",
+                  "attributes": []
+                },
+                {
+                  "name": "$level",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "write": {
+              "visibility": "protected",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * {@inheritdoc}\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            }
+          }
+        },
+        "BufferHandler": {
+          "abstract": false,
+          "final": false,
+          "extends": "\\monolog\\handler\\abstracthandler",
+          "implements": [],
+          "use": [],
+          "useoptions": [],
+          "phpdoc": "\\/**\n * Buffers all records until closing the handler and then pass them as batch.\n *\n * This is useful for a MailHandler to send only one mail per request instead of\n * sending one per log message.\n *\n * @author Christophe Coevoet <stof@notk.org>\n *\\/",
+          "attributes": [],
+          "php": false,
+          "properties": {
+            "$handler": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            },
+            "$bufferSize": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            },
+            "$buffer": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            }
+          },
+          "methods": {
+            "__construct": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$handler",
+                  "reference": false,
+                  "typehint": [
+                    "HandlerInterface"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * @param HandlerInterface $handler Handler.\n     * @param integer $bufferSize How many entries should be buffered at most, beyond that the oldest items are removed from the buffer.\n     * @param integer $level The minimum logging level at which this handler will be triggered\n     * @param Boolean $bubble Whether the messages that are handled can bubble up the stack or not\n     *\\/",
+                  "attributes": []
+                },
+                {
+                  "name": "$bufferSize",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": 0,
+                  "phpdoc": "",
+                  "attributes": []
+                },
+                {
+                  "name": "$level",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "Logger::DEBUG",
+                  "phpdoc": "",
+                  "attributes": []
+                },
+                {
+                  "name": "$bubble",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "true",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "handle": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * {@inheritdoc}\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            },
+            "close": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "\\/**\n     * {@inheritdoc}\n     *\\/",
+              "attributes": []
+            }
+          }
+        },
+        "SyslogHandler": {
+          "abstract": false,
+          "final": false,
+          "extends": "\\monolog\\handler\\abstractprocessinghandler",
+          "implements": [],
+          "use": [],
+          "useoptions": [],
+          "phpdoc": "\\/**\n * Logs to syslog service.\n *\n * usage example:\n *\n *   $log = new Logger('application');\n *   $syslog = new SyslogHandler('myfacility', 'local6');\n *   $formatter = new LineFormatter(\"%channel%.%level_name%: %message% %extra%\");\n *   $syslog->setFormatter($formatter);\n *   $log->pushHandler($syslog);\n *\n * @author Sven Paulus <sven@karlsruhe.org>\n *\\/",
+          "attributes": [],
+          "php": false,
+          "properties": {
+            "$logLevels": {
+              "value": "",
+              "visibility": "private",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "\\/**\n     * Translates Monolog log levels to syslog log priorities.\n     *\\/",
+              "attributes": []
+            },
+            "$facilities": {
+              "value": "",
+              "visibility": "private",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "\\/**\n     * List of valid log facility names.\n     *\\/",
+              "attributes": []
+            }
+          },
+          "methods": {
+            "__construct": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$ident",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * @param string $ident\n     * @param mixed $facility\n     * @param integer $level The minimum logging level at which this handler will be triggered\n     * @param Boolean $bubble Whether the messages that are handled can bubble up the stack or not\n     *\\/",
+                  "attributes": []
+                },
+                {
+                  "name": "$facility",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "LOG_USER",
+                  "phpdoc": "",
+                  "attributes": []
+                },
+                {
+                  "name": "$level",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "Logger::DEBUG",
+                  "phpdoc": "",
+                  "attributes": []
+                },
+                {
+                  "name": "$bubble",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "true",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "close": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "\\/**\n     * {@inheritdoc}\n     *\\/",
+              "attributes": []
+            },
+            "write": {
+              "visibility": "protected",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * {@inheritdoc}\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            }
+          }
+        },
+        "FingersCrossedHandler": {
+          "abstract": false,
+          "final": false,
+          "extends": "\\monolog\\handler\\abstracthandler",
+          "implements": [],
+          "use": [],
+          "useoptions": [],
+          "phpdoc": "\\/**\n * Buffers all records until a certain level is reached\n *\n * The advantage of this approach is that you don't get any clutter in your log files.\n * Only requests which actually trigger an error (or whatever your actionLevel is) will be\n * in the logs, but they will contain all records, not only those above the level threshold.\n *\n * @author Jordi Boggiano <j.boggiano@seld.be>\n *\\/",
+          "attributes": [],
+          "php": false,
+          "properties": {
+            "$handler": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            },
+            "$actionLevel": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            },
+            "$buffering": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            },
+            "$bufferSize": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            },
+            "$buffer": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            },
+            "$stopBuffering": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            }
+          },
+          "methods": {
+            "__construct": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$handler",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * @param callback|HandlerInterface $handler Handler or factory callback($record, $fingersCrossedHandler).\n     * @param int $actionLevel The minimum logging level at which this handler will be triggered\n     * @param int $bufferSize How many entries should be buffered at most, beyond that the oldest items are removed from the buffer.\n     * @param Boolean $bubble Whether the messages that are handled can bubble up the stack or not\n     * @param Boolean $stopBuffering Whether the handler should stop buffering after being triggered (default true)\n     *\\/",
+                  "attributes": []
+                },
+                {
+                  "name": "$actionLevel",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "Logger::WARNING",
+                  "phpdoc": "",
+                  "attributes": []
+                },
+                {
+                  "name": "$bufferSize",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": 0,
+                  "phpdoc": "",
+                  "attributes": []
+                },
+                {
+                  "name": "$bubble",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "true",
+                  "phpdoc": "",
+                  "attributes": []
+                },
+                {
+                  "name": "$stopBuffering",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "true",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "isHandling": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * {@inheritdoc}\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            },
+            "handle": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * {@inheritdoc}\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            },
+            "reset": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "\\/**\n     * Resets the state of the handler. Stops forwarding records to the wrapped handler.\n     *\\/",
+              "attributes": []
+            }
+          }
+        },
+        "GroupHandler": {
+          "abstract": false,
+          "final": false,
+          "extends": "\\monolog\\handler\\abstracthandler",
+          "implements": [],
+          "use": [],
+          "useoptions": [],
+          "phpdoc": "\\/**\n * Forwards records to multiple handlers\n *\n * @author Lenar L\\u00f5hmus <lenar@city.ee>\n *\\/",
+          "attributes": [],
+          "php": false,
+          "properties": {
+            "$handlers": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            }
+          },
+          "methods": {
+            "__construct": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$handlers",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * @param array $handlers Array of Handlers.\n     * @param Boolean $bubble Whether the messages that are handled can bubble up the stack or not\n     *\\/",
+                  "attributes": []
+                },
+                {
+                  "name": "$bubble",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "true",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "isHandling": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * {@inheritdoc}\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            },
+            "handle": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * {@inheritdoc}\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            },
+            "handleBatch": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$records",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * {@inheritdoc}\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            }
+          }
+        },
+        "AbstractHandler": {
+          "abstract": true,
+          "final": false,
+          "extends": "",
+          "implements": [
+            "\\monolog\\handler\\handlerinterface"
+          ],
+          "use": [],
+          "useoptions": [],
+          "phpdoc": "\\/**\n * Base Handler class providing the Handler structure\n *\n * @author Jordi Boggiano <j.boggiano@seld.be>\n *\\/",
+          "attributes": [],
+          "php": false,
+          "properties": {
+            "$level": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            },
+            "$bubble": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            },
+            "$formatter": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "\\/**\n     * @var FormatterInterface\n     *\\/",
+              "attributes": []
+            },
+            "$processors": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            }
+          },
+          "methods": {
+            "__construct": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$level",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "Logger::DEBUG",
+                  "phpdoc": "\\/**\n     * @param integer $level The minimum logging level at which this handler will be triggered\n     * @param Boolean $bubble Whether the messages that are handled can bubble up the stack or not\n     *\\/",
+                  "attributes": []
+                },
+                {
+                  "name": "$bubble",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "true",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "isHandling": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * {@inheritdoc}\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            },
+            "handleBatch": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$records",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * {@inheritdoc}\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            },
+            "close": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "\\/**\n     * Closes the handler.\n     *\n     * This will be called automatically when the object is destroyed\n     *\\/",
+              "attributes": []
+            },
+            "pushProcessor": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$callback",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * {@inheritdoc}\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            },
+            "popProcessor": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "\\/**\n     * {@inheritdoc}\n     *\\/",
+              "attributes": []
+            },
+            "setFormatter": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$formatter",
+                  "reference": false,
+                  "typehint": [
+                    "FormatterInterface"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * {@inheritdoc}\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            },
+            "getFormatter": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "\\/**\n     * {@inheritdoc}\n     *\\/",
+              "attributes": []
+            },
+            "setLevel": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$level",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Sets minimum logging level at which this handler will be triggered.\n     *\n     * @param integer $level\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            },
+            "getLevel": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "\\/**\n     * Gets minimum logging level at which this handler will be triggered.\n     *\n     * @return integer\n     *\\/",
+              "attributes": []
+            },
+            "setBubble": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$bubble",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Sets the bubbling behavior.\n     *\n     * @param Boolean $bubble True means that bubbling is not permitted.\n     *                        False means that this handler allows bubbling.\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            },
+            "getBubble": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "\\/**\n     * Gets the bubbling behavior.\n     *\n     * @return Boolean True means that bubbling is not permitted.\n     *                 False means that this handler allows bubbling.\n     *\\/",
+              "attributes": []
+            },
+            "__destruct": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            },
+            "getDefaultFormatter": {
+              "visibility": "protected",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "\\/**\n     * Gets the default formatter.\n     *\n     * @return FormatterInterface\n     *\\/",
+              "attributes": []
+            }
+          }
+        },
+        "SwiftMailerHandler": {
+          "abstract": false,
+          "final": false,
+          "extends": "\\monolog\\handler\\mailhandler",
+          "implements": [],
+          "use": [],
+          "useoptions": [],
+          "phpdoc": "\\/**\n * SwiftMailerHandler uses Swift_Mailer to send the emails\n *\n * @author Gyula Sallai\n *\\/",
+          "attributes": [],
+          "php": false,
+          "properties": {
+            "$mailer": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            },
+            "$message": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            }
+          },
+          "methods": {
+            "__construct": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$mailer",
+                  "reference": false,
+                  "typehint": [
+                    "\\Swift_Mailer"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * @param \\Swift_Mailer $mailer The mailer to use\n     * @param callback|\\Swift_Message $message An example message for real messages, only the body will be replaced\n     * @param integer $level The minimum logging level at which this handler will be triggered\n     * @param Boolean $bubble Whether the messages that are handled can bubble up the stack or not\n     *\\/",
+                  "attributes": []
+                },
+                {
+                  "name": "$message",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "",
+                  "attributes": []
+                },
+                {
+                  "name": "$level",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "Logger::ERROR",
+                  "phpdoc": "",
+                  "attributes": []
+                },
+                {
+                  "name": "$bubble",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "true",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "send": {
+              "visibility": "protected",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$content",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * {@inheritdoc}\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            }
+          }
+        },
+        "RotatingFileHandler": {
+          "abstract": false,
+          "final": false,
+          "extends": "\\monolog\\handler\\streamhandler",
+          "implements": [],
+          "use": [],
+          "useoptions": [],
+          "phpdoc": "\\/**\n * Stores logs to files that are rotated every day and a limited number of files are kept.\n *\n * This rotation is only intended to be used as a workaround. Using logrotate to\n * handle the rotation is strongly encouraged when you can use it.\n *\n * @author Christophe Coevoet <stof@notk.org>\n *\\/",
+          "attributes": [],
+          "php": false,
+          "properties": {
+            "$filename": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            },
+            "$maxFiles": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            },
+            "$mustRotate": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            }
+          },
+          "methods": {
+            "__construct": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$filename",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * @param string $filename\n     * @param integer $maxFiles The maximal amount of files to keep (0 means unlimited)\n     * @param integer $level The minimum logging level at which this handler will be triggered\n     * @param Boolean $bubble Whether the messages that are handled can bubble up the stack or not\n     *\\/",
+                  "attributes": []
+                },
+                {
+                  "name": "$maxFiles",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": 0,
+                  "phpdoc": "",
+                  "attributes": []
+                },
+                {
+                  "name": "$level",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "Logger::DEBUG",
+                  "phpdoc": "",
+                  "attributes": []
+                },
+                {
+                  "name": "$bubble",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "true",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "close": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "\\/**\n     * {@inheritdoc}\n     *\\/",
+              "attributes": []
+            },
+            "write": {
+              "visibility": "protected",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * {@inheritdoc}\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            },
+            "rotate": {
+              "visibility": "protected",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "\\/**\n     * Rotates the files.\n     *\\/",
+              "attributes": []
+            }
+          }
+        },
+        "NativeMailerHandler": {
+          "abstract": false,
+          "final": false,
+          "extends": "\\monolog\\handler\\mailhandler",
+          "implements": [],
+          "use": [],
+          "useoptions": [],
+          "phpdoc": "\\/**\n * NativeMailerHandler uses the mail() function to send the emails\n *\n * @author Christophe Coevoet <stof@notk.org>\n *\\/",
+          "attributes": [],
+          "php": false,
+          "properties": {
+            "$to": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            },
+            "$subject": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            },
+            "$headers": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            }
+          },
+          "methods": {
+            "__construct": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$to",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * @param string $to The receiver of the mail\n     * @param string $subject The subject of the mail\n     * @param string $from The sender of the mail\n     * @param integer $level The minimum logging level at which this handler will be triggered\n     * @param Boolean $bubble Whether the messages that are handled can bubble up the stack or not\n     *\\/",
+                  "attributes": []
+                },
+                {
+                  "name": "$subject",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "",
+                  "attributes": []
+                },
+                {
+                  "name": "$from",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "",
+                  "attributes": []
+                },
+                {
+                  "name": "$level",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "Logger::ERROR",
+                  "phpdoc": "",
+                  "attributes": []
+                },
+                {
+                  "name": "$bubble",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "true",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "send": {
+              "visibility": "protected",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$content",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * {@inheritdoc}\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            }
+          }
+        },
+        "FirePHPHandler": {
+          "abstract": false,
+          "final": false,
+          "extends": "\\monolog\\handler\\abstractprocessinghandler",
+          "implements": [],
+          "use": [],
+          "useoptions": [],
+          "phpdoc": "\\/**\n * Simple FirePHP Handler (http:\\/\\/www.firephp.org\\/), which uses the Wildfire protocol.\n *\n * @author Eric Clemmons (@ericclemmons) <eric@uxdriven.com>\n *\\/",
+          "attributes": [],
+          "php": false,
+          "constants": {
+            "PROTOCOL_URI": {
+              "value": "'http:\\/\\/meta.wildfirehq.org\\/Protocol\\/JsonStream\\/0.2'",
+              "visibility": "",
+              "phpdoc": "\\/**\n     * WildFire JSON header message format\n     *\\/",
+              "attributes": []
+            },
+            "PLUGIN_URI": {
+              "value": "'http:\\/\\/meta.firephp.org\\/Wildfire\\/Plugin\\/FirePHP\\/Library-FirePHPCore\\/0.3'",
+              "visibility": "",
+              "phpdoc": "\\/**\n     * Must reference a \"known\" plugin, otherwise headers won't display in FirePHP\n     *\\/",
+              "attributes": []
+            },
+            "HEADER_PREFIX": {
+              "value": "'X-Wf'",
+              "visibility": "",
+              "phpdoc": "\\/**\n     * Header prefix for Wildfire to recognize & parse headers\n     *\\/",
+              "attributes": []
+            },
+            "STRUCTURE_URI": {
+              "value": "'http:\\/\\/meta.firephp.org\\/Wildfire\\/Structure\\/FirePHP\\/FirebugConsole\\/0.1'",
+              "visibility": "",
+              "phpdoc": "\\/**\n     * FirePHP structure for parsing messages & their presentation\n     *\\/",
+              "attributes": []
+            }
+          },
+          "properties": {
+            "$initialized": {
+              "value": "",
+              "visibility": "protected",
+              "static": true,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "\\/**\n     * Whether or not Wildfire vendor-specific headers have been generated & sent yet\n     *\\/",
+              "attributes": []
+            },
+            "$messageIndex": {
+              "value": "",
+              "visibility": "protected",
+              "static": true,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "\\/**\n     * Shared static message index between potentially multiple handlers\n     * @var int\n     *\\/",
+              "attributes": []
+            },
+            "$sendHeaders": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            }
+          },
+          "methods": {
+            "createHeader": {
+              "visibility": "protected",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$meta",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Base header creation function used by init headers & record headers\n     *\n     * @param array $meta Wildfire Plugin, Protocol & Structure Indexes\n     * @param string $message Log message\n     * @return array Complete header string ready for the client as key and message as value\n     *\\/",
+                  "attributes": []
+                },
+                {
+                  "name": "$message",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "createRecordHeader": {
+              "visibility": "protected",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Creates message header from record\n     *\n     * @see createHeader()\n     * @param array $record\n     * @return string\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            },
+            "getDefaultFormatter": {
+              "visibility": "protected",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "\\/**\n     * {@inheritDoc}\n     *\\/",
+              "attributes": []
+            },
+            "getInitHeaders": {
+              "visibility": "protected",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "\\/**\n     * Wildfire initialization headers to enable message parsing\n     *\n     * @see createHeader()\n     * @see sendHeader()\n     * @return array\n     *\\/",
+              "attributes": []
+            },
+            "sendHeader": {
+              "visibility": "protected",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$header",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Send header string to the client\n     *\n     * @param string $header\n     * @param string $content\n     *\\/",
+                  "attributes": []
+                },
+                {
+                  "name": "$content",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "write": {
+              "visibility": "protected",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Creates & sends header for a record, ensuring init headers have been sent prior\n     *\n     * @see sendHeader()\n     * @see sendInitHeaders()\n     * @param array $record\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            },
+            "headersAccepted": {
+              "visibility": "protected",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "\\/**\n     * Verifies if the headers are accepted by the current user agent\n     *\n     * @return Boolean\n     *\\/",
+              "attributes": []
+            }
+          }
+        },
+        "MailHandler": {
+          "abstract": true,
+          "final": false,
+          "extends": "\\monolog\\handler\\abstractprocessinghandler",
+          "implements": [],
+          "use": [],
+          "useoptions": [],
+          "phpdoc": "\\/**\n * Base class for all mail handlers\n *\n * @author Gyula Sallai\n *\\/",
+          "attributes": [],
+          "php": false,
+          "methods": {
+            "handleBatch": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$records",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * {@inheritdoc}\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            },
+            "send": {
+              "visibility": "protected",
+              "static": false,
+              "abstract": true,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$content",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Send a mail with the given content\n     *\n     * @param string $content\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            },
+            "write": {
+              "visibility": "protected",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * {@inheritdoc}\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            }
+          }
+        },
+        "StreamHandler": {
+          "abstract": false,
+          "final": false,
+          "extends": "\\monolog\\handler\\abstractprocessinghandler",
+          "implements": [],
+          "use": [],
+          "useoptions": [],
+          "phpdoc": "\\/**\n * Stores to any stream resource\n *\n * Can be used to store into php:\\/\\/stderr, remote and local files, etc.\n *\n * @author Jordi Boggiano <j.boggiano@seld.be>\n *\\/",
+          "attributes": [],
+          "php": false,
+          "properties": {
+            "$stream": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            },
+            "$url": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            }
+          },
+          "methods": {
+            "__construct": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$stream",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * @param string $stream\n     * @param integer $level The minimum logging level at which this handler will be triggered\n     * @param Boolean $bubble Whether the messages that are handled can bubble up the stack or not\n     *\\/",
+                  "attributes": []
+                },
+                {
+                  "name": "$level",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "Logger::DEBUG",
+                  "phpdoc": "",
+                  "attributes": []
+                },
+                {
+                  "name": "$bubble",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "true",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "close": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "\\/**\n     * {@inheritdoc}\n     *\\/",
+              "attributes": []
+            },
+            "write": {
+              "visibility": "protected",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * {@inheritdoc}\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            }
+          }
+        },
+        "NullHandler": {
+          "abstract": false,
+          "final": false,
+          "extends": "\\monolog\\handler\\abstracthandler",
+          "implements": [],
+          "use": [],
+          "useoptions": [],
+          "phpdoc": "\\/**\n * Blackhole\n *\n * Any record it can handle will be thrown away. This can be used\n * to put on top of an existing stack to override it temporarily.\n *\n * @author Jordi Boggiano <j.boggiano@seld.be>\n *\\/",
+          "attributes": [],
+          "php": false,
+          "methods": {
+            "handle": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * {@inheritdoc}\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            }
+          }
+        },
+        "AbstractProcessingHandler": {
+          "abstract": true,
+          "final": false,
+          "extends": "\\monolog\\handler\\abstracthandler",
+          "implements": [],
+          "use": [],
+          "useoptions": [],
+          "phpdoc": "\\/**\n * Base Handler class providing the Handler structure\n *\n * Classes extending it should (in most cases) only implement write($record)\n *\n * @author Jordi Boggiano <j.boggiano@seld.be>\n * @author Christophe Coevoet <stof@notk.org>\n *\\/",
+          "attributes": [],
+          "php": false,
+          "methods": {
+            "handle": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * {@inheritdoc}\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            },
+            "write": {
+              "visibility": "protected",
+              "static": false,
+              "abstract": true,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Writes the record down to the log of the implementing handler\n     *\n     * @param array $record\n     * @return void\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            },
+            "processRecord": {
+              "visibility": "protected",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Processes a record.\n     *\n     * @param array $record\n     * @return array\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            }
+          }
+        }
+      },
+      "interface": {
+        "HandlerInterface": {
+          "abstract": false,
+          "final": false,
+          "extends": "",
+          "implements": [],
+          "use": [],
+          "useoptions": [],
+          "phpdoc": "\\/**\n * Interface that all Monolog Handlers must implement\n *\n * @author Jordi Boggiano <j.boggiano@seld.be>\n *\\/",
+          "attributes": [],
+          "php": false,
+          "methods": {
+            "isHandling": {
+              "visibility": "",
+              "static": false,
+              "abstract": true,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Checks whether the given record will be handled by this handler.\n     *\n     * This is mostly done for performance reasons, to avoid calling processors for nothing.\n     *\n     * @return Boolean\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            },
+            "handle": {
+              "visibility": "",
+              "static": false,
+              "abstract": true,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Handles a record.\n     *\n     * The return value of this function controls the bubbling process of the handler stack.\n     *\n     * @param array $record The record to handle\n     * @return Boolean True means that this handler handled the record, and that bubbling is not permitted.\n     *                 False means the record was either not processed or that this handler allows bubbling.\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            },
+            "handleBatch": {
+              "visibility": "",
+              "static": false,
+              "abstract": true,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$records",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Handles a set of records at once.\n     *\n     * @param array $records The records to handle (an array of record arrays)\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            },
+            "pushProcessor": {
+              "visibility": "",
+              "static": false,
+              "abstract": true,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$callback",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Adds a processor in the stack.\n     *\n     * @param callable $callback\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            },
+            "popProcessor": {
+              "visibility": "",
+              "static": false,
+              "abstract": true,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "\\/**\n     * Removes the processor on top of the stack and returns it.\n     *\n     * @return callable\n     *\\/",
+              "attributes": []
+            },
+            "setFormatter": {
+              "visibility": "",
+              "static": false,
+              "abstract": true,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$formatter",
+                  "reference": false,
+                  "typehint": [
+                    "FormatterInterface"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Sets the formatter.\n     *\n     * @param FormatterInterface $formatter\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            },
+            "getFormatter": {
+              "visibility": "",
+              "static": false,
+              "abstract": true,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "\\/**\n     * Gets the formatter.\n     *\n     * @return FormatterInterface\n     *\\/",
+              "attributes": []
+            }
+          }
+        }
+      }
+    },
+    "\\Monolog\\Processor\\": {
+      "class": {
+        "WebProcessor": {
+          "abstract": false,
+          "final": false,
+          "extends": "",
+          "implements": [],
+          "use": [],
+          "useoptions": [],
+          "phpdoc": "\\/**\n * Injects url\\/method and remote IP of the current web request in all records\n *\n * @author Jordi Boggiano <j.boggiano@seld.be>\n *\\/",
+          "attributes": [],
+          "php": false,
+          "properties": {
+            "$serverData": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            }
+          },
+          "methods": {
+            "__construct": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$serverData",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "null",
+                  "phpdoc": "\\/**\n     * @param mixed $serverData array or object w\\/ ArrayAccess that provides access to the $_SERVER data\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            },
+            "__invoke": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * @param array $record\n     * @return array\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            }
+          }
+        },
+        "MemoryPeakUsageProcessor": {
+          "abstract": false,
+          "final": false,
+          "extends": "\\monolog\\processor\\memoryprocessor",
+          "implements": [],
+          "use": [],
+          "useoptions": [],
+          "phpdoc": "\\/**\n * Injects memory_get_peak_usage in all records\n *\n * @see Monolog\\Processor\\MemoryProcessor::__construct() for options\n * @author Rob Jensen\n *\\/",
+          "attributes": [],
+          "php": false,
+          "methods": {
+            "__invoke": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * @param array $record\n     * @return array\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            }
+          }
+        },
+        "MemoryProcessor": {
+          "abstract": true,
+          "final": false,
+          "extends": "",
+          "implements": [],
+          "use": [],
+          "useoptions": [],
+          "phpdoc": "\\/**\n * Some methods that are common for all memory processors\n *\n * @author Rob Jensen\n *\\/",
+          "attributes": [],
+          "php": false,
+          "properties": {
+            "$realUsage": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            }
+          },
+          "methods": {
+            "__construct": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$realUsage",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "true",
+                  "phpdoc": "\\/**\n     * @param boolean $realUsage\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            },
+            "formatBytes": {
+              "visibility": "protected",
+              "static": true,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$bytes",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Formats bytes into a human readable string\n     *\n     * @param int $bytes\n     * @return string\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            }
+          }
+        },
+        "IntrospectionProcessor": {
+          "abstract": false,
+          "final": false,
+          "extends": "",
+          "implements": [],
+          "use": [],
+          "useoptions": [],
+          "phpdoc": "\\/**\n * Injects line\\/file:class\\/function where the log message came from\n *\n * Warning: This only works if the handler processes the logs directly.\n * If you put the processor on a handler that is behind a FingersCrossedHandler\n * for example, the processor will only be called once the trigger level is reached,\n * and all the log records will have the same file\\/line\\/.. data from the call that\n * triggered the FingersCrossedHandler.\n *\n * @author Jordi Boggiano <j.boggiano@seld.be>\n *\\/",
+          "attributes": [],
+          "php": false,
+          "methods": {
+            "__invoke": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * @param array $record\n     * @return array\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            }
+          }
+        },
+        "MemoryUsageProcessor": {
+          "abstract": false,
+          "final": false,
+          "extends": "\\monolog\\processor\\memoryprocessor",
+          "implements": [],
+          "use": [],
+          "useoptions": [],
+          "phpdoc": "\\/**\n * Injects memory_get_usage in all records\n *\n * @see Monolog\\Processor\\MemoryProcessor::__construct() for options\n * @author Rob Jensen\n *\\/",
+          "attributes": [],
+          "php": false,
+          "methods": {
+            "__invoke": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * @param array $record\n     * @return array\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "\\Monolog\\Formatter\\": {
+      "class": {
+        "LineFormatter": {
+          "abstract": false,
+          "final": false,
+          "extends": "",
+          "implements": [
+            "\\monolog\formatter\formatterinterface"
+          ],
+          "use": [],
+          "useoptions": [],
+          "phpdoc": "\\/**\n * Formats incoming records into a one-line string\n *\n * This is especially useful for logging to files\n *\n * @author Jordi Boggiano <j.boggiano@seld.be>\n * @author Christophe Coevoet <stof@notk.org>\n *\\/",
+          "attributes": [],
+          "php": false,
+          "constants": {
+            "SIMPLE_DATE": {
+              "value": "\"Y-m-d H:i:s\"",
+              "visibility": "",
+              "phpdoc": "",
+              "attributes": []
+            },
+            "SIMPLE_FORMAT": {
+              "value": "\"[%datetime%] %channel%.%level_name%: %message% %context% %extra%\n\"",
+              "visibility": "",
+              "phpdoc": "",
+              "attributes": []
+            }
+          },
+          "properties": {
+            "$format": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            },
+            "$dateFormat": {
+              "value": "",
+              "visibility": "protected",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": []
+            }
+          },
+          "methods": {
+            "__construct": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$format",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "null",
+                  "phpdoc": "\\/**\n     * @param string $format The format of the message\n     * @param string $dateFormat The format of the timestamp: one supported by DateTime::format\n     *\\/",
+                  "attributes": []
+                },
+                {
+                  "name": "$dateFormat",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "null",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "format": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * {@inheritdoc}\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            },
+            "formatBatch": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$records",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "convertToString": {
+              "visibility": "protected",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$data",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            },
+            "normalize": {
+              "visibility": "protected",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$data",
+                  "reference": false,
+                  "typehint": [
+                    ""
+                  ],
+                  "value": "",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            }
+          }
+        },
+        "JsonFormatter": {
+          "abstract": false,
+          "final": false,
+          "extends": "",
+          "implements": [
+            "\\monolog\formatter\formatterinterface"
+          ],
+          "use": [],
+          "useoptions": [],
+          "phpdoc": "\\/**\n * Encodes whatever record data is passed to it as json\n *\n * This can be useful to log to databases or remote APIs\n *\n * @author Jordi Boggiano <j.boggiano@seld.be>\n *\\/",
+          "attributes": [],
+          "php": false,
+          "methods": {
+            "format": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * {@inheritdoc}\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            },
+            "formatBatch": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$records",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * {@inheritdoc}\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            }
+          }
+        },
+        "WildfireFormatter": {
+          "abstract": false,
+          "final": false,
+          "extends": "",
+          "implements": [
+            "\\monolog\formatter\formatterinterface"
+          ],
+          "use": [],
+          "useoptions": [],
+          "phpdoc": "\\/**\n * Serializes a log message according to Wildfire's header requirements\n *\n * @author Eric Clemmons (@ericclemmons) <eric@uxdriven.com>\n * @author Christophe Coevoet <stof@notk.org>\n * @author Kirill chEbba Chebunin <iam@chebba.org>\n *\\/",
+          "attributes": [],
+          "php": false,
+          "properties": {
+            "$logLevels": {
+              "value": "",
+              "visibility": "private",
+              "static": false,
+              "typehint": [
+                ""
+              ],
+              "phpdoc": "\\/**\n     * Translates Monolog log levels to Wildfire levels.\n     *\\/",
+              "attributes": []
+            }
+          },
+          "methods": {
+            "format": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * {@inheritdoc}\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            },
+            "formatBatch": {
+              "visibility": "public",
+              "static": false,
+              "abstract": false,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$records",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "",
+                  "attributes": []
+                }
+              ]
+            }
+          }
+        }
+      },
+      "interface": {
+        "FormatterInterface": {
+          "abstract": false,
+          "final": false,
+          "extends": "",
+          "implements": [],
+          "use": [],
+          "useoptions": [],
+          "phpdoc": "\\/**\n * Interface for formatters\n *\n * @author Jordi Boggiano <j.boggiano@seld.be>\n *\\/",
+          "attributes": [],
+          "php": false,
+          "methods": {
+            "format": {
+              "visibility": "",
+              "static": false,
+              "abstract": true,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$record",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Formats a log record.\n     *\n     * @param array $record A record to format\n     * @return mixed The formatted record\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            },
+            "formatBatch": {
+              "visibility": "",
+              "static": false,
+              "abstract": true,
+              "reference": false,
+              "returntypes": [
+                ""
+              ],
+              "phpdoc": "",
+              "attributes": [],
+              "arguments": [
+                {
+                  "name": "$records",
+                  "reference": false,
+                  "typehint": [
+                    "array"
+                  ],
+                  "value": "",
+                  "phpdoc": "\\/**\n     * Formats a set of log records.\n     *\n     * @param array $records A set of records to format\n     * @return mixed The formatted set of records\n     *\\/",
+                  "attributes": []
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

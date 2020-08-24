@@ -1,0 +1,10 @@
+{
+"name":"monolog/monolog",
+"URL":"https://github.com/Seldaek/monolog.git",
+"dir_ignore":["/test"],
+"stubs":{"1.0":"1.0.2",
+         "1.25":"1.25.5",
+         "2.0":"2.0.2",
+         "2.1":"2.1.1"
+        }
+}
