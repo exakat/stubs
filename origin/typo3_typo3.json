@@ -1,0 +1,19 @@
+{
+"name":"typo3/typo3",
+"URL":"https://github.com/TYPO3/TYPO3.CMS.git",
+"icon":"typo3.png",
+"home":"https://www.typo3.org/",
+"description":"TYPO3 is a free enterprise-class CMS based on PHP. It combines open source code with reliability and true scalability.",
+"dir_ignore":[],
+"stubs":{
+"10.4":"v10.4.4",
+"10.3":"v10.3.0",
+"10.2":"v10.2.2",
+"10.1":"v10.1.0",
+"10.0":"v10.0.0",
+"9.0":"v9.0.0",
+"8.0":"v8.7.32",
+"7.0":"v7.6.32",
+"6.0":"6.2.31"
+        }
+}
