@@ -1,6 +1,9 @@
 {
 "name":"slim/slim",
 "URL":"https://github.com/slimphp/Slim.git",
+"icon":"slim_slim.png",
+"home":"http://www.slimframework.com/",
+"description":"Slim is a PHP micro framework that helps you quickly write simple yet powerful web applications and APIs.",
 "dir_ignore":["/tests"],
 "stubs":{"4.5":"4.5.0",
 "4.4":"4.4.0",
