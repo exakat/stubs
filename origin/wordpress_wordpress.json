@@ -1,6 +1,9 @@
 {
 "name":"wordpress/wordpress",
 "URL":"https://github.com/WordPress/WordPress.git",
+"home":"https://www.wordpress.com/",
+"description":"Open source software which you can use to easily create a beautiful website, blog, or app.",
+"icon":"wordpress_wordpress.png",
 "dir_ignore":[""],
 "stubs":{"5.5":"5.5",
 "5.4":"5.4.2",
