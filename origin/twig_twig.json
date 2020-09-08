@@ -1,0 +1,16 @@
+{
+"name":"twig/twig",
+"URL":"https://github.com/twigphp/Twig.git",
+"home":"https://twig.symfony.com/",
+"description":"Twig - The flexible, fast, and secure template engine for PHP.",
+"icon":"twig_twig.png",
+"dir_ignore":["/test"],
+"stubs":{"3.0":"v3.0.5",
+"2.9":"v2.9.0",
+"2.8":"v2.8.1",
+"2.7":"v2.7.4",
+"2.6":"v2.6.2",
+"2.5":"v2.5.0",
+"2.4":"v2.4.8"
+        }
+}
