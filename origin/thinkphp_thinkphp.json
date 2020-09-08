@@ -1,0 +1,12 @@
+{
+"name":"thinkphp/thinkphp",
+"URL":"https://gitee.com/liu21st/thinkphp.git",
+"icon":"thinkphp_thinkphp.png",
+"home":"http://www.thinkphp.cn/",
+"description":"ThinkPHP框架 - 是由上海顶想公司开发维护的MVC结构的开源PHP框架，遵循Apache2开源协议发布，是为了敏捷WEB应用开发和简化企业应用开发而诞生的。",
+"dir_ignore":[""],
+"stubs":{"6.0":"v6.0.0",
+"5.1":"v5.1.39",
+"5.0":"v5.0.24"
+        }
+}
