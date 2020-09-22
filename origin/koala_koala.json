@@ -1,0 +1,28 @@
+{
+"name":"koala/koala",
+"URL":"https://github.com/koala-framework/koala-framework.git",
+"home":"http://www.koala-framework.org/",
+"description":"The framework for rich websites and smart backends",
+"icon":"koala_koala.png",
+"dir_ignore":["/tests",
+"/css",
+"/bin",
+"/commonjs",
+"/images",
+"/sass"
+],
+"stubs":{
+  "5.3": "5.3",
+  "5.2": "5.2",
+  "5.1": "5.1",
+  "5.0": "5.0",
+  "4.6": "4.6",
+  "4.5": "4.5",
+  "4.4": "4.4",
+  "4.3": "4.3",
+  "4.2": "4.2",
+  "4.1": "4.1",
+  "4.0": "4.0",
+  "3.11": "3.11"
+        }
+}
