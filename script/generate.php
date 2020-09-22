@@ -45,10 +45,9 @@ foreach($config->stubs as $name => $tag) {
     $end = hrtime(true);
     
     print "Duration : ".number_format(($end - $begin) / 1000000, 2)." ms\n";
-
-//    Print "sleep 10\n";
-//    sleep(10);
 }
+
+shell_exec('php exakat.phar remove -p '.$tmpName);
 
 
 ?>
