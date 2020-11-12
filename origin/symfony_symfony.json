@@ -1,0 +1,16 @@
+{
+"name":"symfony/symfony",
+"URL":"https://github.com/TYPO3/TYPO3.CMS.git",
+"icon":"symfony.png",
+"home":"https://www.symfony.com/",
+"description":"Symfony is a PHP framework for web and console applications and a set of reusable PHP components.",
+"dir_ignore":[],
+"stubs":{
+"5.2":"v5.2.0-BETA2",
+"5.1":"v5.1.8",
+"5.0":"v5.0.11",
+"5.0":"v5.0.11",
+"4.4":"v4.4.16",
+"4.3":"v4.3.11"
+        }
+}

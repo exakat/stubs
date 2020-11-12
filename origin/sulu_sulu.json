@@ -1,0 +1,14 @@
+{
+"name":"sulu/sulu",
+"URL":"https://github.com/sulu/sulu.git",
+"icon":"sulu_sulu.png",
+"home":"https://sulu.io/",
+"description":"Deliver awesome, robust, reliable websites with Sulu CMS",
+"dir_ignore":["/tests", "/templates"],
+"stubs":{
+"2.2":"2.2.1",
+"2.1":"2.1.5",
+"2.0":"2.0.12",
+"1.6":"1.6.37"
+        }
+}
