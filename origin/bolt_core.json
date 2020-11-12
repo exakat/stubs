@@ -1,0 +1,11 @@
+{
+"name":"bolt/core",
+"URL":"https://github.com/bolt/core.git",
+"icon":"bolt_bolt.png",
+"home":"https://www.bolt.cm/",
+"description":"Bolt CMS is an open source, adaptable platform for building and running modern websites. Built on PHP, Symfony and more. Read the site for more info.",
+"dir_ignore":["/tests","/translations","/var","/templates"],
+"stubs":{"4.1":"4.1.4",
+"4.0":"4.0.1"
+        }
+}
